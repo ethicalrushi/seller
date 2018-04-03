@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+<body>
+
+
+
+	<div class="jumbotron">
+	{% if registered %}
+
+	<h1>Thank you for registering!</h1>
+
+
+
+	{% else %}
+
+		<h1 class="text-center display-4">Register here!</h1>
+		<h3 class="text-center display-6">Fill out the Form:</h3>
+		<hr>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3">
+				</div>
+				<div class="col-md-6">
+		<form enctype="multipart/form-data" method="POST">
+						{% csrf_token %}
+
+
+
+			<div class="form-group">
+					{{ user_form.username.errors }}
+			  	{{ user_form.username}}
+			</div>
+			<div class="form-group">
+					{{ user_form.email.errors }}
+					{{ user_form.email}}
+			</div>
+			<div class="form-group">
+					{{ user_form.password.errors }}
+					{{ user_form.password}}
+			</div>
+			
+			
+			<input type="submit" class="btn btn-success form-control" value="Register">
+			{% csrf_token %}
+		</form>
+	</div>
+</div>
+		{% endif %}
+
+		
+
+</body>
+</html>
+
