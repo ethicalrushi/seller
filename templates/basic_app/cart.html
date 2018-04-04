@@ -1,0 +1,25 @@
+{% extends 'basic_app/base.html' %}
+{% load static %}
+
+{% block body_block %}
+
+{% for item in cart %}
+
+<div class="container jumbotron">
+
+		{{item.product.name}} :
+		{{item.quantity}}<br>
+		Price per item:{{item.product.price}}
+		<br>
+
+		Quantity: <a href="{% url 'add_to_cart' item.product.id %}">[+]</a> / <a href="{% url 'remove_from_cart' item.product.id %}">[-]</a>
+			</div>
+		{% endfor %}
+		<div class="text-centre">
+		Total : {{total}}
+		</div>
+
+		
+
+
+{% endblock %}

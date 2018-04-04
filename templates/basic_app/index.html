@@ -1,11 +1,13 @@
-{% extends 'basic_app/base.html' %}
 
+
+{% extends 'basic_app/base.html' %}
+{% load staticfiles %}
 
 {% block body_block %}
 
-<a href="{% url 'electronics' %}">Electronics</a>
-
-
+<a href="{% url 'electronics' %}"><img src="{% static 'elec.png' %}" width="1100px" height="400px"></a><br>
+<a href="{% url 'books' %}">Books</a>
+<a href="{% url 'fashion' %}">Fashion</a>
 
 
 {% endblock %}
