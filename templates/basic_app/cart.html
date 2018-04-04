@@ -3,20 +3,37 @@
 
 {% block body_block %}
 
+<div class="container jumbotron">
+<table class="table m-5 p-3">
+		<tr>
+		<th>Item</th>
+		<th>Detail</th>
+		</tr>
 {% for item in cart %}
 
-<div class="container jumbotron">
 
-		{{item.product.name}} :
-		{{item.quantity}}<br>
-		Price per item:{{item.product.price}}
-		<br>
+		<tr>
+		<td>
+			<img src="{{ item.product.image.url }}">
+		</td>
+		<td>
+		{{item.product.name}} <br>
+		
+		Price per item:{{item.product.price}}<br>
+		
 
-		Quantity: <a href="{% url 'add_to_cart' item.product.id %}">[+]</a> / <a href="{% url 'remove_from_cart' item.product.id %}">[-]</a>
-			</div>
-		{% endfor %}
-		<div class="text-centre">
-		Total : {{total}}
+		Quantity: {{item.quantity}}<br><a href="{% url 'add_to_cart' item.product.id %}">[+]</a> / <a href="{% url 'remove_from_cart' item.product.id %}">[-]</a>
+			
+			</td>
+		</tr>
+{% endfor %}
+	<tr>
+	<td>
+			Total 
+			</td>
+			<td> {{total}}</td>
+			</tr>
+			</table>
 		</div>
 
 		

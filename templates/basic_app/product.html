@@ -1,6 +1,8 @@
 {% load staticfiles %}
 
+
 <!DOCTYPE html>
+
 <html>
 <head>
 	<title>Amazon</title>
@@ -9,7 +11,7 @@
 </head>
 <body>
 	<div class="container">
-		<h1>Welcome To Amazon!</h1>
+		<h1>Welcome To Rushzon!</h1><a href="{% url 'basic_app:index' %}">Back</a>
 	</div>
 	<div class="searchbox container">
 		
@@ -25,32 +27,30 @@
 		{% for p in products %}
 <div class="container jumbotron pro">
 			
-		<div class="container ">
+		<div class="row justify-content-center text-center">
+		<div class="col-md-6">
 				<h1>{{p.name }}</h1>
 				<h2>{{p.department}}</h2>
-				<img src="{{ p.image.url }}" width="400px" >
-			</div>
-			
-			
-				<div class="details pull-left">
-					<h1><strong>Rs.{{p.price}}/-</strong></h1>
-					{% if p.cod_availability %}
-						<strong>COD : Available</strong> 
-					{% else %}
-						<strong>COD : Unavailable</strong>
-					{% endif %}
-					<br>
-					<strong>Sold BY : {{ p.seller }}</strong>
-					<br>
-					<strong>Description :</strong>
-					<br>
-					<ul>
-						<li>{{p.description}}</li>
-					</ul>
+				<img src="{{ p.image.url }}"  >
+				<h1><strong>Rs.{{p.price}}/-</strong></h1>
+				{% if p.cod_availability %}
+					<strong>COD : Available</strong> 
+				{% else %}
+					<strong>COD : Unavailable</strong>
+				{% endif %}
+				<br>
+				<strong>Sold BY : {{ p.seller }}</strong>
+				<br>
+				<strong>Description :</strong>
+				<br>
+				<ul>
+					<li>{{p.description}}</li>
+				</ul>
 
-					<a href="{% url 'add_to_cart' p.id %}">[Add to Cart]</a>
-				</div>
-			
+				<a href="{% url 'add_to_cart' p.id %}">[Add to Cart]</a>
+			</div>
+			</div>
+			</div>
 </div>
 
 		{% endfor %}
